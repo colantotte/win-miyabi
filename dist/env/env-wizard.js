@@ -11,12 +11,12 @@ import { persistEnvVar } from './env-writer.js';
 export function checkEnvVars() {
     const vars = [
         { name: 'Anthropic API Key', envVar: 'ANTHROPIC_API_KEY', prefix: 'sk-ant-' },
-        { name: 'GitHub Token', envVar: 'GITHUB_TOKEN', prefix: 'ghp_' },
+        { name: 'GitHub Token', envVar: 'GITHUB_TOKEN', prefix: '' },
     ];
     return vars.map(v => {
         const currentValue = process.env[v.envVar] || null;
         const isSet = !!currentValue;
-        const isValid = isSet && currentValue.startsWith(v.prefix);
+        const isValid = isSet && (v.prefix === '' ? currentValue.length >= 20 : currentValue.startsWith(v.prefix));
         return {
             name: v.name,
             envVar: v.envVar,
@@ -84,13 +84,10 @@ export async function runEnvWizard() {
         const res = await prompts({
             type: 'password',
             name: 'token',
-            message: 'GitHubトークン (ghp_...):',
+            message: 'GitHubトークン:',
             validate: (v) => {
                 if (!v)
                     return 'GitHubトークンを入力してください';
-                if (!v.startsWith('ghp_') && !v.startsWith('github_pat_')) {
-                    return 'ghp_ または github_pat_ で始まる必要があります';
-                }
                 if (v.length < 20)
                     return 'トークンが短すぎます';
                 return true;
