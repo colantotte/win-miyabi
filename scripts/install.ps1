@@ -1,6 +1,6 @@
 # Win-Miyabi PowerShell インストーラー
-# 使用方法 (GitHubリポジトリ公開後):
-#   iwr -useb https://raw.githubusercontent.com/<owner>/win-miyabi/main/scripts/install.ps1 | iex
+# 使用方法:
+#   iwr -useb https://raw.githubusercontent.com/colantotte/win-miyabi/main/scripts/install.ps1 | iex
 # ローカル実行:
 #   ./install.ps1
 

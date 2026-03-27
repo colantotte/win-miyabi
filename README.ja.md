@@ -18,11 +18,8 @@ Win-Miyabiは、自律型AI開発フレームワーク [Miyabi](https://github.c
 
 ```powershell
 # PowerShellで実行 (管理者権限推奨)
-# GitHubにリポジトリを公開後、<owner> を実際のオーナー名に置き換えてください
-iwr -useb https://raw.githubusercontent.com/<owner>/win-miyabi/main/scripts/install.ps1 | iex
+iwr -useb https://raw.githubusercontent.com/colantotte/win-miyabi/main/scripts/install.ps1 | iex
 ```
-
-> **注意:** GitHubにリポジトリを公開するまでは、方法B (npm) をご利用ください。
 
 ### 方法B: npm
 

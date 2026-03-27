@@ -20,11 +20,8 @@ It handles:
 
 ```powershell
 # Run in PowerShell (as Administrator recommended)
-# After publishing to GitHub, replace <owner> with the actual repository owner
-iwr -useb https://raw.githubusercontent.com/<owner>/win-miyabi/main/scripts/install.ps1 | iex
+iwr -useb https://raw.githubusercontent.com/colantotte/win-miyabi/main/scripts/install.ps1 | iex
 ```
-
-> **Note:** Until the repository is published on GitHub, use Option B (npm) instead.
 
 ### Option B: npm
 
