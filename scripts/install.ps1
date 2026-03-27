@@ -131,23 +131,45 @@ if (-not $SkipGitHubCLI) {
     }
 }
 
-# Win-Miyabi インストール (GitHubから直接)
+# Win-Miyabi インストール (clone → local install)
 Write-Output ""
 Write-ColorOutput White "📥 Win-Miyabi をインストール中..."
 Write-Output ""
 
 $npmExists = $null -ne (Get-Command npm -ErrorAction SilentlyContinue)
-if ($npmExists) {
-    try {
-        npm install -g github:colantotte/win-miyabi 2>&1
-        Write-Success "Win-Miyabi インストール完了"
-    } catch {
-        Write-Error2 "Win-Miyabi インストール失敗"
-        Write-ColorOutput Gray "    手動インストール: npm install -g github:colantotte/win-miyabi"
-    }
-} else {
+$gitExists2 = $null -ne (Get-Command git -ErrorAction SilentlyContinue)
+
+if (-not $npmExists) {
     Write-Error2 "npm が見つかりません。Node.js をインストール後に再実行してください。"
     exit 1
+}
+
+if (-not $gitExists2) {
+    Write-Error2 "git が見つかりません。Git をインストール後に再実行してください。"
+    exit 1
+}
+
+$installDir = "$env:TEMP\win-miyabi-install"
+
+# 古いインストール作業ディレクトリを削除
+if (Test-Path $installDir) {
+    Remove-Item -Recurse -Force $installDir -ErrorAction SilentlyContinue
+}
+
+try {
+    Write-Info "リポジトリをクローン中..."
+    git clone --depth=1 https://github.com/colantotte/win-miyabi.git $installDir 2>&1 | Out-Null
+
+    Write-Info "グローバルインストール中..."
+    npm install -g $installDir 2>&1
+
+    Remove-Item -Recurse -Force $installDir -ErrorAction SilentlyContinue
+    Write-Success "Win-Miyabi インストール完了"
+} catch {
+    Write-Error2 "Win-Miyabi インストール失敗: $_"
+    Write-ColorOutput Gray "    手動インストール手順:"
+    Write-ColorOutput Gray "    git clone https://github.com/colantotte/win-miyabi.git"
+    Write-ColorOutput Gray "    cd win-miyabi && npm install -g ."
 }
 
 # 環境変数の設定案内
