@@ -2,7 +2,7 @@
  * 環境変数セットアップウィザード
  * ANTHROPIC_API_KEY, GITHUB_TOKEN の対話型設定
  */
-import inquirer from 'inquirer';
+import prompts from 'prompts';
 import chalk from 'chalk';
 import { persistEnvVar } from './env-writer.js';
 /**
@@ -27,31 +27,6 @@ export function checkEnvVars() {
     });
 }
 /**
- * APIキーの形式を検証
- */
-function validateAnthropicKey(key) {
-    if (!key)
-        return 'APIキーを入力してください';
-    if (!key.startsWith('sk-ant-'))
-        return 'Anthropic APIキーは sk-ant- で始まる必要があります';
-    if (key.length < 40)
-        return 'APIキーが短すぎます';
-    return true;
-}
-/**
- * GitHubトークンの形式を検証
- */
-function validateGitHubToken(token) {
-    if (!token)
-        return 'GitHubトークンを入力してください';
-    if (!token.startsWith('ghp_') && !token.startsWith('github_pat_')) {
-        return 'GitHubトークンは ghp_ または github_pat_ で始まる必要があります';
-    }
-    if (token.length < 20)
-        return 'トークンが短すぎます';
-    return true;
-}
-/**
  * 環境変数セットアップウィザードを実行
  */
 export async function runEnvWizard() {
@@ -71,45 +46,57 @@ export async function runEnvWizard() {
         }
     }
     console.log('');
-    // 設定が必要な変数を確認
     const needsSetup = currentStatus.filter(s => !s.isValid);
     if (needsSetup.length === 0) {
         console.log(chalk.green('✓ 全ての環境変数が正しく設定されています！'));
         return;
     }
-    // Anthropic API Key の設定
+    // Anthropic API Key
     const anthropicStatus = currentStatus.find(s => s.envVar === 'ANTHROPIC_API_KEY');
     let anthropicApiKey = '';
     if (!anthropicStatus?.isValid) {
         console.log(chalk.yellow('📌 Anthropic APIキーの取得方法:'));
         console.log(chalk.gray('   1. https://console.anthropic.com にアクセス'));
         console.log(chalk.gray('   2. Settings → API Keys → Create Key\n'));
-        const { apiKey } = await inquirer.prompt([
-            {
-                type: 'password',
-                name: 'apiKey',
-                message: 'Anthropic APIキー (sk-ant-...):',
-                validate: validateAnthropicKey,
+        const res = await prompts({
+            type: 'password',
+            name: 'apiKey',
+            message: 'Anthropic APIキー (sk-ant-...):',
+            validate: (v) => {
+                if (!v)
+                    return 'APIキーを入力してください';
+                if (!v.startsWith('sk-ant-'))
+                    return 'sk-ant- で始まる必要があります';
+                if (v.length < 40)
+                    return 'APIキーが短すぎます';
+                return true;
             },
-        ]);
-        anthropicApiKey = apiKey;
+        });
+        anthropicApiKey = res.apiKey || '';
     }
-    // GitHub Token の設定
+    // GitHub Token
     const githubStatus = currentStatus.find(s => s.envVar === 'GITHUB_TOKEN');
     let githubToken = '';
     if (!githubStatus?.isValid) {
         console.log(chalk.yellow('\n📌 GitHubトークンの取得方法:'));
         console.log(chalk.gray('   1. https://github.com/settings/tokens にアクセス'));
         console.log(chalk.gray('   2. Generate new token → repo, workflow スコープを選択\n'));
-        const { token } = await inquirer.prompt([
-            {
-                type: 'password',
-                name: 'token',
-                message: 'GitHubトークン (ghp_...):',
-                validate: validateGitHubToken,
+        const res = await prompts({
+            type: 'password',
+            name: 'token',
+            message: 'GitHubトークン (ghp_...):',
+            validate: (v) => {
+                if (!v)
+                    return 'GitHubトークンを入力してください';
+                if (!v.startsWith('ghp_') && !v.startsWith('github_pat_')) {
+                    return 'ghp_ または github_pat_ で始まる必要があります';
+                }
+                if (v.length < 20)
+                    return 'トークンが短すぎます';
+                return true;
             },
-        ]);
-        githubToken = token;
+        });
+        githubToken = res.token || '';
     }
     // 保存
     console.log(chalk.cyan('\n💾 環境変数を保存しています...\n'));

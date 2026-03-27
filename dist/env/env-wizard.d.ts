@@ -1,8 +1,4 @@
-export interface EnvConfig {
-    anthropicApiKey: string;
-    githubToken: string;
-}
-interface EnvCheckResult {
+export interface EnvCheckResult {
     name: string;
     envVar: string;
     currentValue: string | null;
@@ -17,4 +13,3 @@ export declare function checkEnvVars(): EnvCheckResult[];
  * 環境変数セットアップウィザードを実行
  */
 export declare function runEnvWizard(): Promise<void>;
-export {};
