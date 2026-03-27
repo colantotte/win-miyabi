@@ -19,7 +19,7 @@
   ],
   "scripts": {
     "build": "tsc",
-    "prepare": "tsc",
+    "prepare": "node node_modules/typescript/bin/tsc",
     "dev": "tsx src/index.ts",
     "clean": "rm -rf dist tsconfig.tsbuildinfo",
     "test": "vitest run",
