@@ -1,0 +1,70 @@
+{
+  "name": "win-miyabi",
+  "version": "0.1.0",
+  "description": "Miyabi for Windows - Windows PCでMiyabiを簡単に使えるようにするブリッジパッケージ",
+  "type": "module",
+  "bin": {
+    "win-miyabi": "dist/index.js",
+    "wmiyabi": "dist/index.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "scripts",
+    "templates",
+    "docs",
+    "README.md",
+    "README.ja.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/index.ts",
+    "clean": "rm -rf dist tsconfig.tsbuildinfo",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "postinstall": "node scripts/post-install.js",
+    "prepublishOnly": "npm run clean && npm run build"
+  },
+  "keywords": [
+    "miyabi",
+    "windows",
+    "ai",
+    "agents",
+    "autonomous",
+    "automation",
+    "cli",
+    "claude",
+    "anthropic",
+    "powershell",
+    "wsl2"
+  ],
+  "author": "Win-Miyabi Contributors",
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/win-miyabi/win-miyabi#readme",
+  "bugs": {
+    "url": "https://github.com/win-miyabi/win-miyabi/issues"
+  },
+  "dependencies": {
+    "miyabi": "^0.19.0",
+    "commander": "^12.0.0",
+    "inquirer": "^9.2.12",
+    "chalk": "^5.3.0",
+    "ora": "^8.1.1",
+    "cross-spawn": "^7.0.6",
+    "which": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/cross-spawn": "^6.0.6",
+    "@types/inquirer": "^9.0.7",
+    "@types/node": "^22.15.0",
+    "@types/which": "^3.0.4",
+    "tsx": "^4.7.0",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

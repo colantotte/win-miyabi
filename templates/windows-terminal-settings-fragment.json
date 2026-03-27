@@ -1,0 +1,51 @@
+{
+  "$help": "このファイルを %LOCALAPPDATA%\\Microsoft\\Windows Terminal\\Fragments\\win-miyabi\\ に配置してください",
+  "schemes": [
+    {
+      "name": "Miyabi",
+      "background": "#1a0d1a",
+      "foreground": "#e8d5e8",
+      "cursorColor": "#ff8fa8",
+      "selectionBackground": "#4a1a4a",
+      "black": "#1a0d1a",
+      "red": "#ff6b6b",
+      "green": "#7bc67b",
+      "yellow": "#ffd93d",
+      "blue": "#6b9fff",
+      "purple": "#c96fbd",
+      "cyan": "#6ecfcf",
+      "white": "#e8d5e8",
+      "brightBlack": "#4a3a4a",
+      "brightRed": "#ff8fa8",
+      "brightGreen": "#a8dca8",
+      "brightYellow": "#ffe066",
+      "brightBlue": "#99baff",
+      "brightPurple": "#e08fd8",
+      "brightCyan": "#96dfdf",
+      "brightWhite": "#f5eef5"
+    }
+  ],
+  "profiles": [
+    {
+      "name": "Win-Miyabi (PowerShell)",
+      "commandline": "pwsh.exe -NoLogo",
+      "colorScheme": "Miyabi",
+      "fontFace": "Cascadia Code",
+      "fontSize": 12,
+      "startingDirectory": "%USERPROFILE%",
+      "icon": "🌸",
+      "tabTitle": "🌸 Miyabi",
+      "historySize": 10000,
+      "scrollbarState": "visible"
+    },
+    {
+      "name": "Win-Miyabi (WSL2 Ubuntu)",
+      "source": "Windows.Terminal.Wsl",
+      "colorScheme": "Miyabi",
+      "fontFace": "Cascadia Code",
+      "fontSize": 12,
+      "icon": "🐧",
+      "tabTitle": "🐧 Miyabi WSL2"
+    }
+  ]
+}
