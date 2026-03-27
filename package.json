@@ -24,7 +24,6 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
-    "postinstall": "node scripts/post-install.js",
     "prepublishOnly": "npm run clean && npm run build"
   },
   "keywords": [

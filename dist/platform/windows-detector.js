@@ -80,4 +80,3 @@ export function getPlatformInfo() {
         windowsTerminal: isWindowsTerminal(),
     };
 }
-//# sourceMappingURL=windows-detector.js.map

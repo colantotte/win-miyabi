@@ -18,4 +18,3 @@ export declare function checkEnvVars(): EnvCheckResult[];
  */
 export declare function runEnvWizard(): Promise<void>;
 export {};
-//# sourceMappingURL=env-wizard.d.ts.map

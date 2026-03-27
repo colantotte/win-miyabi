@@ -85,4 +85,3 @@ export function isMiyabiInstalledInWSL(distro) {
     const result = execCommand(cmd, { silent: true });
     return result.success && result.stdout.trim().length > 0;
 }
-//# sourceMappingURL=wsl-detector.js.map

@@ -23,4 +23,3 @@ export declare function isWSL2Available(): boolean;
  * WSL2内にMiyabiがインストールされているかを確認
  */
 export declare function isMiyabiInstalledInWSL(distro?: string): boolean;
-//# sourceMappingURL=wsl-detector.d.ts.map

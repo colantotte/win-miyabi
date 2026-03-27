@@ -108,4 +108,3 @@ export function getMissingRequired(report) {
 export function getMissingOptional(report) {
     return report.dependencies.filter(d => !d.required && !d.available);
 }
-//# sourceMappingURL=dependency-checker.js.map

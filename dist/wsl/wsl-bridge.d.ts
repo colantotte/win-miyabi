@@ -19,4 +19,3 @@ export declare function execInWSL(command: string, options?: WSLBridgeOptions): 
  * WSL2内にMiyabiをインストール
  */
 export declare function installMiyabiInWSL(distro?: string): boolean;
-//# sourceMappingURL=wsl-bridge.d.ts.map

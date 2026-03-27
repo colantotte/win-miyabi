@@ -75,4 +75,3 @@ export async function runInstall() {
         console.log(chalk.gray('  詳細: win-miyabi check\n'));
     }
 }
-//# sourceMappingURL=install.js.map

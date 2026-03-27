@@ -28,4 +28,3 @@ export declare function getHomeDir(): string;
  * カレントディレクトリをWSLパスに変換 (WSL2環境から呼び出す場合)
  */
 export declare function getCurrentDirForWSL(): string;
-//# sourceMappingURL=path-utils.d.ts.map

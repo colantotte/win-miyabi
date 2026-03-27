@@ -99,4 +99,3 @@ export function getCurrentDirForWSL() {
     }
     return cwd;
 }
-//# sourceMappingURL=path-utils.js.map

@@ -40,4 +40,3 @@ export declare function execInWSL(command: string, options?: {
  * (ユーザーへUAC確認ダイアログが表示される)
  */
 export declare function execAsAdmin(command: string): boolean;
-//# sourceMappingURL=shell-executor.d.ts.map

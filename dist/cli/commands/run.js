@@ -62,4 +62,3 @@ function executeMiyabiNative(args) {
     });
     process.exit(result.status ?? 1);
 }
-//# sourceMappingURL=run.js.map

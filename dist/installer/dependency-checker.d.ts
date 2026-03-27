@@ -24,4 +24,3 @@ export declare function getMissingRequired(report: DependenciesReport): Dependen
  * 不足しているオプション依存パッケージを取得
  */
 export declare function getMissingOptional(report: DependenciesReport): DependencyStatus[];
-//# sourceMappingURL=dependency-checker.d.ts.map

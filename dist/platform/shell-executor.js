@@ -105,4 +105,3 @@ export function execAsAdmin(command) {
     ], { encoding: 'utf-8', stdio: 'inherit' });
     return result.status === 0;
 }
-//# sourceMappingURL=shell-executor.js.map

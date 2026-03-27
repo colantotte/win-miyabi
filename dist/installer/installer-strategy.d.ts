@@ -28,4 +28,3 @@ export declare function installPackage(pkg: InstallPackage, displayName: string)
  * 依存パッケージの定義
  */
 export declare const PACKAGE_DEFINITIONS: Record<string, InstallPackage>;
-//# sourceMappingURL=installer-strategy.d.ts.map

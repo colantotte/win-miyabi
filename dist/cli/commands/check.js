@@ -104,4 +104,3 @@ export async function runCheck() {
         }
     }
 }
-//# sourceMappingURL=check.js.map

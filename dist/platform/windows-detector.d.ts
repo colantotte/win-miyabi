@@ -42,4 +42,3 @@ export declare function isWindowsTerminal(): boolean;
  * 詳細なプラットフォーム情報を取得
  */
 export declare function getPlatformInfo(): PlatformInfo;
-//# sourceMappingURL=windows-detector.d.ts.map

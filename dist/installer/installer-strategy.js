@@ -126,4 +126,3 @@ export const PACKAGE_DEFINITIONS = {
         manual: 'https://github.com/PowerShell/PowerShell/releases',
     },
 };
-//# sourceMappingURL=installer-strategy.js.map

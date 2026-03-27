@@ -87,4 +87,3 @@ export function installMiyabiInWSL(distro) {
     }
     return true;
 }
-//# sourceMappingURL=wsl-bridge.js.map

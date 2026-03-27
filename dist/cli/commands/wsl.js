@@ -100,4 +100,3 @@ export function guideWSLInstall() {
     console.log(chalk.yellow('💡 ヒント: Windows 11では標準でWSL2が推奨されます'));
     console.log(chalk.yellow('   Windows 10の場合はビルド19041以降が必要です\n'));
 }
-//# sourceMappingURL=wsl.js.map

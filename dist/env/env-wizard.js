@@ -139,4 +139,3 @@ export async function runEnvWizard() {
     console.log(chalk.gray('  win-miyabi check  - 環境を再確認'));
     console.log(chalk.gray('  win-miyabi run    - Miyabiを起動\n'));
 }
-//# sourceMappingURL=env-wizard.js.map

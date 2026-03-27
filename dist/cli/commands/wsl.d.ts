@@ -10,4 +10,3 @@ export declare function installMiyabiToWSL(distro?: string): Promise<void>;
  * WSL2のインストールをガイド
  */
 export declare function guideWSLInstall(): void;
-//# sourceMappingURL=wsl.d.ts.map
