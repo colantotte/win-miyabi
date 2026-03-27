@@ -21,10 +21,10 @@ Win-Miyabiは、自律型AI開発フレームワーク [Miyabi](https://github.c
 iwr -useb https://raw.githubusercontent.com/colantotte/win-miyabi/main/scripts/install.ps1 | iex
 ```
 
-### 方法B: npm
+### 方法B: npm (GitHubから直接インストール)
 
 ```powershell
-npm install -g win-miyabi
+npm install -g github:colantotte/win-miyabi
 win-miyabi check    # 環境診断
 win-miyabi install  # 不足パッケージのインストール
 win-miyabi setup    # APIキーの設定

@@ -19,6 +19,7 @@
   ],
   "scripts": {
     "build": "tsc",
+    "prepare": "tsc",
     "dev": "tsx src/index.ts",
     "clean": "rm -rf dist tsconfig.tsbuildinfo",
     "test": "vitest run",
@@ -42,9 +43,9 @@
   ],
   "author": "Win-Miyabi Contributors",
   "license": "Apache-2.0",
-  "homepage": "https://github.com/win-miyabi/win-miyabi#readme",
+  "homepage": "https://github.com/colantotte/win-miyabi#readme",
   "bugs": {
-    "url": "https://github.com/win-miyabi/win-miyabi/issues"
+    "url": "https://github.com/colantotte/win-miyabi/issues"
   },
   "dependencies": {
     "miyabi": "^0.19.0",

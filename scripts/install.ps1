@@ -131,7 +131,7 @@ if (-not $SkipGitHubCLI) {
     }
 }
 
-# Win-Miyabi インストール
+# Win-Miyabi インストール (GitHubから直接)
 Write-Output ""
 Write-ColorOutput White "📥 Win-Miyabi をインストール中..."
 Write-Output ""
@@ -139,11 +139,11 @@ Write-Output ""
 $npmExists = $null -ne (Get-Command npm -ErrorAction SilentlyContinue)
 if ($npmExists) {
     try {
-        npm install -g win-miyabi 2>&1
+        npm install -g github:colantotte/win-miyabi 2>&1
         Write-Success "Win-Miyabi インストール完了"
     } catch {
         Write-Error2 "Win-Miyabi インストール失敗"
-        Write-ColorOutput Gray "    手動インストール: npm install -g win-miyabi"
+        Write-ColorOutput Gray "    手動インストール: npm install -g github:colantotte/win-miyabi"
     }
 } else {
     Write-Error2 "npm が見つかりません。Node.js をインストール後に再実行してください。"

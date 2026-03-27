@@ -23,10 +23,10 @@ It handles:
 iwr -useb https://raw.githubusercontent.com/colantotte/win-miyabi/main/scripts/install.ps1 | iex
 ```
 
-### Option B: npm
+### Option B: npm (install directly from GitHub)
 
 ```powershell
-npm install -g win-miyabi
+npm install -g github:colantotte/win-miyabi
 win-miyabi check    # Diagnose environment
 win-miyabi install  # Install missing packages
 win-miyabi setup    # Configure API keys
